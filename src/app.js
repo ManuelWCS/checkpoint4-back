@@ -8,7 +8,7 @@ const router = require('./routes/index.routes');
 app.use(cors());
 app.use('/', router);
 app.get("/", (req, res) => {
-    res.send("Welcome to the checkpoint 4");
+res.send("Welcome to the checkpoint 4");
 });
 
 module.exports = app;
