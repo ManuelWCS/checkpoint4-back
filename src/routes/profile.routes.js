@@ -36,7 +36,7 @@ router.get('/:id', (req, res) => {
   });
 
   router.put('/:id', (req, res) => {
-    let sql = "UPDATE profile SET ? WHERE id=?";
+    let sql = "UPDATE profile SET ? WHERE user_id=?";
     connection.query(sql, [req.body, req.params.id], (err, results) => {
       if (err) {
         res.status(500).send({errorMessage: err.message});
