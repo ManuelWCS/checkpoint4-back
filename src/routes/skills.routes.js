@@ -36,12 +36,12 @@ router.get('/:id', (req, res) => {
   });
 
   router.put('/:id', (req, res) => {
-    let sql = "UPDATE skills SET ? WHERE id=?";
+    let sql = "UPDATE skills SET ? WHERE user_id=?";
     connection.query(sql, [req.body, req.params.id], (err, results) => {
       if (err) {
         res.status(500).send({errorMessage: err.message});
       } else {
-        sql = "SELECT * FROM skills WHERE id=?";
+        sql = "SELECT * FROM skills WHERE user_id=?";
         connection.query(sql, req.params.id, (err, result) => {
           if (result.length === 0) {
             res.status(404).send({errorMessage: `user with id ${req.params.id} not found`});
@@ -55,7 +55,7 @@ router.get('/:id', (req, res) => {
 
 
   router.delete('/:id', (req, res) => {
-    const sql = "DELETE FROM skills WHERE id=?";
+    const sql = "DELETE FROM skills WHERE user_id=?";
     connection.query(sql, req.params.id, (err, results) => {
       if (err) {
         res.status(500).send({errorMessage: err.message});

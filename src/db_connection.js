@@ -6,7 +6,8 @@ let config = {
   port: process.env.DB_PORT,
   user: process.env.DB_USER,
   password: process.env.DB_PASS,
-  database: process.env.DB_NAME
+  database: process.env.DB_NAME,
+  JWT_SECRET: process.env.JWT_SECRET
 };
 
 if (process.env.NODE_ENV === 'test') {

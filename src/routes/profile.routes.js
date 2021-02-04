@@ -41,7 +41,7 @@ router.get('/:id', (req, res) => {
       if (err) {
         res.status(500).send({errorMessage: err.message});
       } else {
-        sql = "SELECT * FROM profile WHERE id=?";
+        sql = "SELECT * FROM profile WHERE user_id=?";
         connection.query(sql, req.params.id, (err, result) => {
           if (result.length === 0) {
             res.status(404).send({errorMessage: `user with id ${req.params.id} not found`});
